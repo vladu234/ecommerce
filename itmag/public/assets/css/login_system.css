@@ -1,0 +1,1465 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem; }
+
+body span {
+  font-family: "Roboto";
+  letter-spacing: 0.2px; }
+  @media only screen and (min-width: 1200px) {
+    body span {
+      font-size: 0.9rem; } }
+
+body a {
+  font-weight: 700;
+  letter-spacing: 0.2px; }
+
+body i {
+  color: #2d3436; }
+  body i.fa-times {
+    color: #EA2027; }
+  @media only screen and (min-width: 1200px) {
+    body i {
+      font-size: 1em; } }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem; }
+
+body span {
+  font-family: "Roboto";
+  letter-spacing: 0.2px; }
+  @media only screen and (min-width: 1200px) {
+    body span {
+      font-size: 0.9rem; } }
+
+body a {
+  font-weight: 700;
+  letter-spacing: 0.2px; }
+
+body i {
+  color: #2d3436; }
+  body i.fa-times {
+    color: #EA2027; }
+  @media only screen and (min-width: 1200px) {
+    body i {
+      font-size: 1em; } }
+
+.page-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden; }
+  .page-loader.active {
+    animation: fade-in 1s ease-in 1; }
+@keyframes fade-in {
+  0% {
+    opacity: 1;
+    visibility: visible; }
+  25% {
+    opacity: 1;
+    visibility: visible; }
+  50% {
+    opacity: 1;
+    visibility: visible; }
+  75% {
+    opacity: 0;
+    visibility: hidden; }
+  100% {
+    opacity: 0;
+    visibility: hidden; } }
+  .page-loader > div {
+    width: 15px;
+    height: 15px;
+    background-color: #2d3436;
+    border-radius: 50%;
+    margin: 0 1%; }
+    @media only screen and (min-width: 1200px) {
+      .page-loader > div {
+        margin: 0 10px; } }
+    .page-loader > div.active {
+      animation: bounce 1s ease-in 1;
+      animation-delay: 0.1s; }
+      .page-loader > div.active:nth-child(2) {
+        animation-delay: 0.3s; }
+      .page-loader > div.active:last-child {
+        animation-delay: 0.5s; }
+@keyframes bounce {
+  0% {
+    transform: translateY(0); }
+  17% {
+    transform: translateY(-5px); }
+  34% {
+    transform: translateY(-10px); }
+  50% {
+    transform: translateY(-15px); }
+  66% {
+    transform: translateY(-10px); }
+  84% {
+    transform: translateY(-5px); }
+  100% {
+    transform: translateY(0); } }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem; }
+
+body span {
+  font-family: "Roboto";
+  letter-spacing: 0.2px; }
+  @media only screen and (min-width: 1200px) {
+    body span {
+      font-size: 0.9rem; } }
+
+body a {
+  font-weight: 700;
+  letter-spacing: 0.2px; }
+
+body i {
+  color: #2d3436; }
+  body i.fa-times {
+    color: #EA2027; }
+  @media only screen and (min-width: 1200px) {
+    body i {
+      font-size: 1em; } }
+
+.navbar {
+  display: grid;
+  grid-template-columns: 0.1fr 0.25fr 0.2fr 0.5fr;
+  grid-template-rows: 45px;
+  grid-template-areas: 'left logo . right';
+  position: relative;
+  background-color: #fff;
+  z-index: 9; }
+  .navbar.sticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+    animation: trans-in 0.2s ease-in 1; }
+@keyframes trans-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-15%); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+  @media only screen and (min-width: 768px) {
+    .navbar {
+      grid-template-columns: 0.03fr 0.14fr 0.65fr 0.2fr 0.03fr;
+      grid-template-areas: '. logo search right .';
+      grid-template-rows: 60px; }
+      .navbar.sticky {
+        grid-template-columns: 0.03fr 0.05fr 0.14fr 0.55fr 0.2fr 0.03fr;
+        grid-template-areas: '. left logo search right .';
+        grid-template-rows: 45px; }
+        .navbar.sticky::after {
+          background: linear-gradient(90deg, #1289A7, #6F1E51); } }
+  @media only screen and (min-width: 1200px) {
+    .navbar {
+      grid-template-columns: 0.05fr 0.05fr 0.025fr 0.5fr 0.025fr 0.3fr 0.05fr;
+      grid-template-areas: ". logo . search . right ."; }
+      .navbar.sticky {
+        grid-template-columns: 0.05fr 0.03fr 0.1fr 0.01fr 0.45fr 0.01fr 0.3fr 0.05fr;
+        grid-template-areas: ". left logo . search . right .";
+        grid-template-rows: 45px; } }
+  .navbar::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #1289A7, #6F1E51); }
+    @media only screen and (min-width: 768px) {
+      .navbar::after {
+        background: none; } }
+  .navbar__left-area {
+    grid-area: left;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; }
+    .navbar__left-area::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: transparent;
+      z-index: 9; }
+    .navbar__left-area > i {
+      font-size: 1.3em;
+      color: #1289A7;
+      transform: rotate(0);
+      transition: transform 0.2s ease-in; }
+      @media only screen and (min-width: 1200px) {
+        .navbar__left-area > i {
+          cursor: pointer; } }
+      .navbar__left-area > i.fa-times {
+        transform: rotate(90deg); }
+    @media only screen and (min-width: 768px) {
+      .navbar__left-area {
+        display: none; } }
+    .navbar__left-area.sticky {
+      display: flex; }
+    .navbar__left-area__categories {
+      position: absolute;
+      top: calc(100% + 3px);
+      left: 0;
+      width: 235px;
+      height: calc(100vh - 45px);
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      z-index: 9;
+      transform: translateX(-100%);
+      transition: transform 0.2s ease-in; }
+      .navbar__left-area__categories::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1px;
+        height: 100%;
+        background-image: linear-gradient(120deg, #6F1E51, #1289A7); }
+      .navbar__left-area__categories.active {
+        transform: translateX(0); }
+      @media only screen and (min-width: 768px) {
+        .navbar__left-area__categories {
+          width: 250px;
+          left: -60%; } }
+      @media only screen and (min-width: 1200px) {
+        .navbar__left-area__categories {
+          width: 15vw;
+          height: 25vh;
+          left: 0;
+          transform: translateX(0);
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          box-shadow: 0 0 5px #2d3436;
+          visibility: hidden;
+          opacity: 0;
+          transition: visibility 0.25s ease-in, opacity 0.25s ease-in; }
+          .navbar__left-area__categories::after {
+            background-image: none; }
+          .navbar__left-area__categories.active {
+            visibility: visible;
+            opacity: 1; } }
+      .navbar__left-area__categories > a {
+        width: 100%;
+        height: 6.5vh;
+        display: flex;
+        align-items: center;
+        padding: 0 3%;
+        text-decoration: none; }
+        @media only screen and (min-width: 411px) {
+          .navbar__left-area__categories > a {
+            height: 5vh; } }
+        @media only screen and (min-width: 768px) {
+          .navbar__left-area__categories > a {
+            height: 3.5vh; } }
+        @media only screen and (min-width: 1200px) {
+          .navbar__left-area__categories > a {
+            height: 5vh;
+            padding: 1% 3%;
+            transition: box-shadow 0.15s ease-in; }
+            .navbar__left-area__categories > a:hover {
+              box-shadow: inset 0 0 5px #cdd2d4; }
+            .navbar__left-area__categories > a:hover > span {
+              color: #1289A7; } }
+        .navbar__left-area__categories > a > i {
+          color: #2d3436; }
+        .navbar__left-area__categories > a > span {
+          color: #2d3436;
+          margin-left: 4%;
+          font-size: 0.85em;
+          font-weight: 600;
+          transition: color 0.15s ease-in; }
+  .navbar__logo {
+    grid-area: logo;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center; }
+    .navbar__logo > a {
+      width: 70%;
+      height: 60%;
+      display: flex;
+      align-items: center; }
+      @media only screen and (min-width: 768px) {
+        .navbar__logo > a {
+          width: 85%;
+          height: 60%; } }
+      @media only screen and (min-width: 1200px) {
+        .navbar__logo > a {
+          width: 100%;
+          height: 100%; }
+          .navbar__logo > a.sticky {
+            width: 70%;
+            height: 75%; } }
+      .navbar__logo > a > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; }
+  .navbar__search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.25s ease-in, opacity 0.25s ease-in; }
+    .navbar__search.active {
+      opacity: 1;
+      visibility: visible; }
+    @media only screen and (min-width: 768px) {
+      .navbar__search {
+        grid-area: search;
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        opacity: 1;
+        visibility: visible; } }
+    .navbar__search__container {
+      width: 90%;
+      margin: 0 auto;
+      height: 100%;
+      display: flex; }
+      @media only screen and (min-width: 768px) {
+        .navbar__search__container {
+          width: 100%;
+          height: 60%;
+          border: 1px solid #1289A7;
+          border-radius: 15px;
+          transition: border-bottom-left-radius 0.15s ease-in, border-bottom-right-radius 0.15s ease-in; }
+          .navbar__search__container.active {
+            border-bottom: none;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0; }
+          .navbar__search__container.sticky {
+            height: 75%; } }
+      .navbar__search__container input {
+        width: 85%;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-family: "Roboto";
+        font-weight: 700;
+        color: #2d3436; }
+        @media only screen and (min-width: 768px) {
+          .navbar__search__container input {
+            width: 90%;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            padding: 0 2%; } }
+        @media only screen and (min-width: 1200px) {
+          .navbar__search__container input {
+            width: 93%;
+            font-size: 0.9em; } }
+      .navbar__search__container > i {
+        width: 15%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 1.3em;
+        color: #1289A7; }
+        @media only screen and (min-width: 768px) {
+          .navbar__search__container > i {
+            width: 10%;
+            justify-content: center; } }
+        @media only screen and (min-width: 1200px) {
+          .navbar__search__container > i {
+            width: 7%; } }
+        .navbar__search__container > i.fa-times {
+          color: #EA2027; }
+          @media only screen and (min-width: 768px) {
+            .navbar__search__container > i.fa-times {
+              opacity: 0;
+              visibility: hidden;
+              transform: rotate(0);
+              transition: visibility 0.25s ease-in, opacity 0.25s ease-in, transform 0.2s ease-in; }
+              .navbar__search__container > i.fa-times.active {
+                opacity: 1;
+                visibility: visible;
+                transform: rotate(90deg); } }
+          @media only screen and (min-width: 1200px) {
+            .navbar__search__container > i.fa-times {
+              cursor: pointer; } }
+        @media only screen and (min-width: 1200px) {
+          .navbar__search__container > i.fa-search {
+            cursor: pointer;
+            transition: color 0.15s ease-in; }
+            .navbar__search__container > i.fa-search:hover {
+              color: #083d4b; } }
+    .navbar__search__suggestions {
+      position: absolute;
+      top: calc(100% + 3px);
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 45px);
+      display: flex;
+      flex-direction: column;
+      background-color: inherit; }
+      @media only screen and (min-width: 768px) {
+        .navbar__search__suggestions {
+          top: calc(100% - 12px);
+          opacity: 0;
+          visibility: hidden;
+          height: 40vh;
+          transition: visibility 0.25s ease-in, opacity 0.25s ease-in;
+          background-color: inherit;
+          border: 1px solid #1289A7;
+          border-bottom-left-radius: 15px;
+          border-bottom-right-radius: 15px; }
+          .navbar__search__suggestions.active {
+            opacity: 1;
+            visibility: visible; }
+          .navbar__search__suggestions.sticky {
+            top: calc(100% - 7px); } }
+      @media only screen and (min-width: 1200px) {
+        .navbar__search__suggestions {
+          height: 55vh; } }
+      .navbar__search__suggestions > span {
+        width: 100%;
+        height: 5vh;
+        display: flex;
+        align-items: center;
+        padding: 0 3%;
+        font-weight: 800; }
+      .navbar__search__suggestions > a {
+        width: 100%;
+        height: 5vh;
+        display: flex;
+        align-items: center;
+        padding: 6%;
+        text-decoration: none; }
+        @media only screen and (min-width: 768px) {
+          .navbar__search__suggestions > a {
+            padding: 2% 3%; } }
+        @media only screen and (min-width: 1200px) {
+          .navbar__search__suggestions > a {
+            transition: box-shadow 0.15s ease-in;
+            padding: 1% 3%; }
+            .navbar__search__suggestions > a:hover {
+              box-shadow: inset 0 0 5px #cdd2d4; }
+            .navbar__search__suggestions > a:hover > span {
+              color: #1289A7; } }
+        .navbar__search__suggestions > a > i {
+          color: #2d3436; }
+        .navbar__search__suggestions > a > span {
+          color: #2d3436;
+          margin-left: 2%;
+          font-weight: 600;
+          font-size: 0.85em;
+          transition: color 0.15s ease-in; }
+      .navbar__search__suggestions__back {
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 65%;
+        margin: 0 auto;
+        height: 5vh;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        .navbar__search__suggestions__back > i {
+          margin-right: 5%;
+          color: #2d3436; }
+        .navbar__search__suggestions__back > span {
+          font-weight: 800;
+          font-size: 0.9em; }
+        @media only screen and (min-width: 768px) {
+          .navbar__search__suggestions__back {
+            display: none; } }
+  .navbar__right-area {
+    grid-area: right;
+    width: 100%;
+    height: 100%;
+    display: flex; }
+    .navbar__right-area > i {
+      width: 25%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3em;
+      color: #1289A7; }
+      @media only screen and (min-width: 768px) {
+        .navbar__right-area > i {
+          display: none; } }
+    .navbar__right-area > div {
+      width: 25%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-decoration: none; }
+      @media only screen and (min-width: 768px) {
+        .navbar__right-area > div {
+          width: 33%; } }
+      @media only screen and (min-width: 1200px) {
+        .navbar__right-area > div::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background-color: transparent;
+          z-index: 9; } }
+      .navbar__right-area > div > a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        text-decoration: none; }
+        .navbar__right-area > div > a:hover > i {
+          color: #083d4b; }
+        .navbar__right-area > div > a:hover > span {
+          color: #1289A7; }
+        .navbar__right-area > div > a > i {
+          font-size: 1.3em;
+          color: #1289A7;
+          transition: color 0.15s ease-in; }
+          .navbar__right-area > div > a > i.fa-caret-down {
+            display: none; }
+            @media only screen and (min-width: 1200px) {
+              .navbar__right-area > div > a > i.fa-caret-down {
+                display: block;
+                color: #2d3436;
+                font-size: 0.85em; } }
+          .navbar__right-area > div > a > i.fa-circle {
+            position: relative;
+            font-size: 2em; }
+            .navbar__right-area > div > a > i.fa-circle > span.user {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              color: #fff;
+              font-size: 1rem; }
+          .navbar__right-area > div > a > i.fa-heart-o, .navbar__right-area > div > a > i.fa-shopping-cart {
+            position: relative; }
+            .navbar__right-area > div > a > i.fa-heart-o .items-count, .navbar__right-area > div > a > i.fa-shopping-cart .items-count {
+              position: absolute;
+              top: -30%;
+              right: -40%;
+              width: 18px;
+              height: 18px;
+              background-color: #083d4b;
+              border-radius: 50%; }
+              @media only screen and (min-width: 1200px) {
+                .navbar__right-area > div > a > i.fa-heart-o .items-count, .navbar__right-area > div > a > i.fa-shopping-cart .items-count {
+                  width: 16px;
+                  height: 16px; } }
+              .navbar__right-area > div > a > i.fa-heart-o .items-count > span, .navbar__right-area > div > a > i.fa-shopping-cart .items-count > span {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 0.75em;
+                transition: color 0.15s ease-in; }
+                @media only screen and (min-width: 1200px) {
+                  .navbar__right-area > div > a > i.fa-heart-o .items-count > span, .navbar__right-area > div > a > i.fa-shopping-cart .items-count > span {
+                    font-size: 0.65em; } }
+        .navbar__right-area > div > a > span {
+          display: none; }
+          @media only screen and (min-width: 1200px) {
+            .navbar__right-area > div > a > span {
+              display: flex;
+              margin: 0 5%;
+              font-weight: 800;
+              color: #2d3436; } }
+      .navbar__right-area > div .user-panel {
+        display: none; }
+        @media only screen and (min-width: 1200px) {
+          .navbar__right-area > div .user-panel {
+            position: absolute;
+            top: 100%;
+            left: -15vw;
+            width: auto;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            background-color: #fff;
+            box-shadow: 0 0 5px #2d3436;
+            border-radius: 5px;
+            z-index: 9;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: visibility 0.25s ease-in, opacity 0.25s ease-in, transform 0.2s ease-in; }
+            .navbar__right-area > div .user-panel.active {
+              opacity: 1;
+              visibility: visible;
+              transform: translateY(0); }
+            .navbar__right-area > div .user-panel.sticky {
+              top: calc(100% + 3px);
+              border-top-left-radius: 0;
+              border-top-right-radius: 0; }
+              .navbar__right-area > div .user-panel.sticky::before {
+                bottom: calc(95% + 3px); }
+            .navbar__right-area > div .user-panel__not-logged-in {
+              width: 25vw;
+              height: 20vh;
+              display: flex;
+              flex-direction: column; }
+              .navbar__right-area > div .user-panel__not-logged-in__header {
+                width: 100%;
+                height: 50%;
+                display: flex; }
+                .navbar__right-area > div .user-panel__not-logged-in__header > i {
+                  width: 15%;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 1.9em;
+                  color: #083d4b; }
+                .navbar__right-area > div .user-panel__not-logged-in__header > span {
+                  width: 85%;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  font-size: 0.85em; }
+              .navbar__right-area > div .user-panel__not-logged-in__actions {
+                width: 100%;
+                height: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: space-around; }
+                .navbar__right-area > div .user-panel__not-logged-in__actions > a {
+                  position: relative;
+                  text-decoration: none; }
+                  .navbar__right-area > div .user-panel__not-logged-in__actions > a:first-child {
+                    width: 40%;
+                    height: 35px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    background-color: #083d4b;
+                    border-radius: 5px;
+                    transition: background-color 0.15s ease-in; }
+                    .navbar__right-area > div .user-panel__not-logged-in__actions > a:first-child > i {
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      transform: translateY(-50%);
+                      width: 25%;
+                      height: 100%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: #fff;
+                      background-color: #1289A7;
+                      border-top-left-radius: 5px;
+                      border-bottom-left-radius: 5px;
+                      border-bottom-right-radius: 75%;
+                      transition: background-color 0.15s ease-in; }
+                    .navbar__right-area > div .user-panel__not-logged-in__actions > a:first-child > span {
+                      width: 75%;
+                      display: flex;
+                      justify-content: center;
+                      color: #fff;
+                      font-size: 0.85em; }
+                    .navbar__right-area > div .user-panel__not-logged-in__actions > a:first-child:hover {
+                      background-color: #1289A7; }
+                    .navbar__right-area > div .user-panel__not-logged-in__actions > a:first-child:hover > i {
+                      background-color: #083d4b; }
+                  .navbar__right-area > div .user-panel__not-logged-in__actions > a:nth-child(2) {
+                    width: 50%;
+                    height: 35px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center; }
+                    .navbar__right-area > div .user-panel__not-logged-in__actions > a:nth-child(2) > span {
+                      color: #2d3436;
+                      font-size: 0.85em; }
+                    .navbar__right-area > div .user-panel__not-logged-in__actions > a:nth-child(2)::after {
+                      content: "";
+                      position: absolute;
+                      top: 100%;
+                      left: 50%;
+                      transform: translateX(-50%);
+                      width: 0;
+                      height: 1px;
+                      background: linear-gradient(90deg, #1289A7, #6F1E51);
+                      transition: width 0.2s ease-in; }
+                    .navbar__right-area > div .user-panel__not-logged-in__actions > a:nth-child(2):hover::after {
+                      width: 100%; } }
+        .navbar__right-area > div .user-panel__actions {
+          width: 15vw;
+          height: 30vh;
+          display: flex;
+          flex-direction: column; }
+          .navbar__right-area > div .user-panel__actions > span {
+            height: 7vh;
+            display: flex;
+            align-items: center;
+            padding: 0 3%;
+            border-bottom: 1px solid #636e72;
+            font-weight: 1000;
+            letter-spacing: 0.5px; }
+          .navbar__right-area > div .user-panel__actions > ul {
+            width: 100%;
+            height: 23vh;
+            display: flex;
+            flex-direction: column;
+            list-style: none; }
+            .navbar__right-area > div .user-panel__actions > ul > li {
+              width: 100%;
+              height: 5vh; }
+              .navbar__right-area > div .user-panel__actions > ul > li.last {
+                margin-top: auto; }
+              .navbar__right-area > div .user-panel__actions > ul > li > a {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                padding: 0 3%;
+                text-decoration: none;
+                transition: box-shadow 0.15s ease-in; }
+                .navbar__right-area > div .user-panel__actions > ul > li > a > span {
+                  color: #2d3436; }
+                .navbar__right-area > div .user-panel__actions > ul > li > a:hover {
+                  box-shadow: inset 0 0 5px #cdd2d4; }
+                .navbar__right-area > div .user-panel__actions > ul > li > a:hover > span {
+                  color: #1289A7; }
+
+@media only screen and (min-width: 1200px) {
+  body label,
+  body input {
+    font-size: 0.9rem;
+    font-weight: 700; } }
+
+.login {
+  width: 100%;
+  height: 80vh; }
+  .login > h1 {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-size: 1.1em;
+    letter-spacing: 0.2px; }
+  .login__btns {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 5%; }
+    @media only screen and (min-width: 768px) {
+      .login__btns {
+        width: 60%;
+        margin: 0 auto; } }
+    @media only screen and (min-width: 1200px) {
+      .login__btns {
+        width: 30%; } }
+    .login__btns > button {
+      width: 40%;
+      height: 35px;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      background-color: #1289A7;
+      transition: background-color 0.15s ease-in; }
+      @media only screen and (min-width: 1200px) {
+        .login__btns > button {
+          cursor: pointer; }
+          .login__btns > button:hover {
+            background-color: #083d4b; } }
+      .login__btns > button.active {
+        background-color: #083d4b; }
+      .login__btns > button > span {
+        color: #fff; }
+  .login__carousel {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; }
+    .login__carousel__slider {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      transition: transform 0.2s ease-in; }
+      .login__carousel__slider .login,
+      .login__carousel__slider .register {
+        min-width: 100%;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; }
+        .login__carousel__slider .login i,
+        .login__carousel__slider .register i {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #636e72;
+          transition: color 0.15s ease-in; }
+          .login__carousel__slider .login i.active,
+          .login__carousel__slider .register i.active {
+            color: #1289A7; }
+          .login__carousel__slider .login i i.fa-check,
+          .login__carousel__slider .register i i.fa-check {
+            color: #1abc9c; }
+        .login__carousel__slider .login .login-field,
+        .login__carousel__slider .login .register-field,
+        .login__carousel__slider .register .login-field,
+        .login__carousel__slider .register .register-field {
+          width: 90%;
+          height: 25%;
+          margin: 0 auto; }
+          @media only screen and (min-width: 768px) {
+            .login__carousel__slider .login .login-field,
+            .login__carousel__slider .login .register-field,
+            .login__carousel__slider .register .login-field,
+            .login__carousel__slider .register .register-field {
+              width: 50%; } }
+          @media only screen and (min-width: 1200px) {
+            .login__carousel__slider .login .login-field,
+            .login__carousel__slider .login .register-field,
+            .login__carousel__slider .register .login-field,
+            .login__carousel__slider .register .register-field {
+              width: 25%; } }
+          .login__carousel__slider .login .login-field .login-field__input,
+          .login__carousel__slider .login .login-field .register-field__input,
+          .login__carousel__slider .login .register-field .login-field__input,
+          .login__carousel__slider .login .register-field .register-field__input,
+          .login__carousel__slider .register .login-field .login-field__input,
+          .login__carousel__slider .register .login-field .register-field__input,
+          .login__carousel__slider .register .register-field .login-field__input,
+          .login__carousel__slider .register .register-field .register-field__input {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            position: relative;
+            margin-top: 3%;
+            border-bottom: 1px solid #636e72; }
+            .login__carousel__slider .login .login-field .login-field__input > i,
+            .login__carousel__slider .login .login-field .register-field__input > i,
+            .login__carousel__slider .login .register-field .login-field__input > i,
+            .login__carousel__slider .login .register-field .register-field__input > i,
+            .login__carousel__slider .register .login-field .login-field__input > i,
+            .login__carousel__slider .register .login-field .register-field__input > i,
+            .login__carousel__slider .register .register-field .login-field__input > i,
+            .login__carousel__slider .register .register-field .register-field__input > i {
+              left: 2%; }
+            .login__carousel__slider .login .login-field .login-field__input > input,
+            .login__carousel__slider .login .login-field .register-field__input > input,
+            .login__carousel__slider .login .register-field .login-field__input > input,
+            .login__carousel__slider .login .register-field .register-field__input > input,
+            .login__carousel__slider .register .login-field .login-field__input > input,
+            .login__carousel__slider .register .login-field .register-field__input > input,
+            .login__carousel__slider .register .register-field .login-field__input > input,
+            .login__carousel__slider .register .register-field .register-field__input > input {
+              width: 100%;
+              height: 100%;
+              border: none;
+              outline: none;
+              padding-left: 10%;
+              font-family: "Roboto", sans-serif;
+              font-weight: 700;
+              letter-spacing: 0.2px; }
+              .login__carousel__slider .login .login-field .login-field__input > input:focus ~ i.fa-user, .login__carousel__slider .login .login-field .login-field__input > input:focus ~ i.fa-lock, .login__carousel__slider .login .login-field .login-field__input > input:focus ~ i.fa-repeat,
+              .login__carousel__slider .login .login-field .register-field__input > input:focus ~ i.fa-user,
+              .login__carousel__slider .login .login-field .register-field__input > input:focus ~ i.fa-lock,
+              .login__carousel__slider .login .login-field .register-field__input > input:focus ~ i.fa-repeat,
+              .login__carousel__slider .login .register-field .login-field__input > input:focus ~ i.fa-user,
+              .login__carousel__slider .login .register-field .login-field__input > input:focus ~ i.fa-lock,
+              .login__carousel__slider .login .register-field .login-field__input > input:focus ~ i.fa-repeat,
+              .login__carousel__slider .login .register-field .register-field__input > input:focus ~ i.fa-user,
+              .login__carousel__slider .login .register-field .register-field__input > input:focus ~ i.fa-lock,
+              .login__carousel__slider .login .register-field .register-field__input > input:focus ~ i.fa-repeat,
+              .login__carousel__slider .register .login-field .login-field__input > input:focus ~ i.fa-user,
+              .login__carousel__slider .register .login-field .login-field__input > input:focus ~ i.fa-lock,
+              .login__carousel__slider .register .login-field .login-field__input > input:focus ~ i.fa-repeat,
+              .login__carousel__slider .register .login-field .register-field__input > input:focus ~ i.fa-user,
+              .login__carousel__slider .register .login-field .register-field__input > input:focus ~ i.fa-lock,
+              .login__carousel__slider .register .login-field .register-field__input > input:focus ~ i.fa-repeat,
+              .login__carousel__slider .register .register-field .login-field__input > input:focus ~ i.fa-user,
+              .login__carousel__slider .register .register-field .login-field__input > input:focus ~ i.fa-lock,
+              .login__carousel__slider .register .register-field .login-field__input > input:focus ~ i.fa-repeat,
+              .login__carousel__slider .register .register-field .register-field__input > input:focus ~ i.fa-user,
+              .login__carousel__slider .register .register-field .register-field__input > input:focus ~ i.fa-lock,
+              .login__carousel__slider .register .register-field .register-field__input > input:focus ~ i.fa-repeat {
+                color: #1289A7; }
+              .login__carousel__slider .login .login-field .login-field__input > input:focus ~ label,
+              .login__carousel__slider .login .login-field .register-field__input > input:focus ~ label,
+              .login__carousel__slider .login .register-field .login-field__input > input:focus ~ label,
+              .login__carousel__slider .login .register-field .register-field__input > input:focus ~ label,
+              .login__carousel__slider .register .login-field .login-field__input > input:focus ~ label,
+              .login__carousel__slider .register .login-field .register-field__input > input:focus ~ label,
+              .login__carousel__slider .register .register-field .login-field__input > input:focus ~ label,
+              .login__carousel__slider .register .register-field .register-field__input > input:focus ~ label {
+                top: 0; }
+              .login__carousel__slider .login .login-field .login-field__input > input:focus ~ .border,
+              .login__carousel__slider .login .login-field .register-field__input > input:focus ~ .border,
+              .login__carousel__slider .login .register-field .login-field__input > input:focus ~ .border,
+              .login__carousel__slider .login .register-field .register-field__input > input:focus ~ .border,
+              .login__carousel__slider .register .login-field .login-field__input > input:focus ~ .border,
+              .login__carousel__slider .register .login-field .register-field__input > input:focus ~ .border,
+              .login__carousel__slider .register .register-field .login-field__input > input:focus ~ .border,
+              .login__carousel__slider .register .register-field .register-field__input > input:focus ~ .border {
+                width: 100%; }
+            .login__carousel__slider .login .login-field .login-field__input > label,
+            .login__carousel__slider .login .login-field .register-field__input > label,
+            .login__carousel__slider .login .register-field .login-field__input > label,
+            .login__carousel__slider .login .register-field .register-field__input > label,
+            .login__carousel__slider .register .login-field .login-field__input > label,
+            .login__carousel__slider .register .login-field .register-field__input > label,
+            .login__carousel__slider .register .register-field .login-field__input > label,
+            .login__carousel__slider .register .register-field .register-field__input > label {
+              position: absolute;
+              top: 50%;
+              left: 10%;
+              transform: translateY(-50%);
+              font-family: "Roboto";
+              color: #636e72;
+              pointer-events: none;
+              opacity: 0;
+              visibility: hidden;
+              transition: visibility 0.25s ease-in, opacity 0.25s ease-in, top 0.15s ease-in; }
+              .login__carousel__slider .login .login-field .login-field__input > label.active,
+              .login__carousel__slider .login .login-field .register-field__input > label.active,
+              .login__carousel__slider .login .register-field .login-field__input > label.active,
+              .login__carousel__slider .login .register-field .register-field__input > label.active,
+              .login__carousel__slider .register .login-field .login-field__input > label.active,
+              .login__carousel__slider .register .login-field .register-field__input > label.active,
+              .login__carousel__slider .register .register-field .login-field__input > label.active,
+              .login__carousel__slider .register .register-field .register-field__input > label.active {
+                opacity: 1;
+                visibility: visible; }
+            .login__carousel__slider .login .login-field .login-field__input .pw-peek,
+            .login__carousel__slider .login .login-field .register-field__input .pw-peek,
+            .login__carousel__slider .login .register-field .login-field__input .pw-peek,
+            .login__carousel__slider .login .register-field .register-field__input .pw-peek,
+            .login__carousel__slider .register .login-field .login-field__input .pw-peek,
+            .login__carousel__slider .register .login-field .register-field__input .pw-peek,
+            .login__carousel__slider .register .register-field .login-field__input .pw-peek,
+            .login__carousel__slider .register .register-field .register-field__input .pw-peek {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              right: 10%; }
+              .login__carousel__slider .login .login-field .login-field__input .pw-peek > i,
+              .login__carousel__slider .login .login-field .register-field__input .pw-peek > i,
+              .login__carousel__slider .login .register-field .login-field__input .pw-peek > i,
+              .login__carousel__slider .login .register-field .register-field__input .pw-peek > i,
+              .login__carousel__slider .register .login-field .login-field__input .pw-peek > i,
+              .login__carousel__slider .register .login-field .register-field__input .pw-peek > i,
+              .login__carousel__slider .register .register-field .login-field__input .pw-peek > i,
+              .login__carousel__slider .register .register-field .register-field__input .pw-peek > i {
+                right: 10%;
+                opacity: 0;
+                visibility: hidden;
+                z-index: -1;
+                transition: visibility 0.25s ease-in, opacity 0.25s ease-in;
+                cursor: pointer; }
+                .login__carousel__slider .login .login-field .login-field__input .pw-peek > i.active,
+                .login__carousel__slider .login .login-field .register-field__input .pw-peek > i.active,
+                .login__carousel__slider .login .register-field .login-field__input .pw-peek > i.active,
+                .login__carousel__slider .login .register-field .register-field__input .pw-peek > i.active,
+                .login__carousel__slider .register .login-field .login-field__input .pw-peek > i.active,
+                .login__carousel__slider .register .login-field .register-field__input .pw-peek > i.active,
+                .login__carousel__slider .register .register-field .login-field__input .pw-peek > i.active,
+                .login__carousel__slider .register .register-field .register-field__input .pw-peek > i.active {
+                  opacity: 1;
+                  visibility: visible;
+                  z-index: 2; }
+                .login__carousel__slider .login .login-field .login-field__input .pw-peek > i.fa-eye,
+                .login__carousel__slider .login .login-field .register-field__input .pw-peek > i.fa-eye,
+                .login__carousel__slider .login .register-field .login-field__input .pw-peek > i.fa-eye,
+                .login__carousel__slider .login .register-field .register-field__input .pw-peek > i.fa-eye,
+                .login__carousel__slider .register .login-field .login-field__input .pw-peek > i.fa-eye,
+                .login__carousel__slider .register .login-field .register-field__input .pw-peek > i.fa-eye,
+                .login__carousel__slider .register .register-field .login-field__input .pw-peek > i.fa-eye,
+                .login__carousel__slider .register .register-field .register-field__input .pw-peek > i.fa-eye {
+                  color: #1289A7; }
+            .login__carousel__slider .login .login-field .login-field__input .icon-feedback,
+            .login__carousel__slider .login .login-field .register-field__input .icon-feedback,
+            .login__carousel__slider .login .register-field .login-field__input .icon-feedback,
+            .login__carousel__slider .login .register-field .register-field__input .icon-feedback,
+            .login__carousel__slider .register .login-field .login-field__input .icon-feedback,
+            .login__carousel__slider .register .login-field .register-field__input .icon-feedback,
+            .login__carousel__slider .register .register-field .login-field__input .icon-feedback,
+            .login__carousel__slider .register .register-field .register-field__input .icon-feedback {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              right: 2%; }
+              .login__carousel__slider .login .login-field .login-field__input .icon-feedback > i,
+              .login__carousel__slider .login .login-field .register-field__input .icon-feedback > i,
+              .login__carousel__slider .login .register-field .login-field__input .icon-feedback > i,
+              .login__carousel__slider .login .register-field .register-field__input .icon-feedback > i,
+              .login__carousel__slider .register .login-field .login-field__input .icon-feedback > i,
+              .login__carousel__slider .register .login-field .register-field__input .icon-feedback > i,
+              .login__carousel__slider .register .register-field .login-field__input .icon-feedback > i,
+              .login__carousel__slider .register .register-field .register-field__input .icon-feedback > i {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 2%;
+                opacity: 0;
+                visibility: hidden;
+                z-index: -1;
+                transition: visibility 0.25s ease-in, opacity 0.25s ease-in; }
+                .login__carousel__slider .login .login-field .login-field__input .icon-feedback > i.active,
+                .login__carousel__slider .login .login-field .register-field__input .icon-feedback > i.active,
+                .login__carousel__slider .login .register-field .login-field__input .icon-feedback > i.active,
+                .login__carousel__slider .login .register-field .register-field__input .icon-feedback > i.active,
+                .login__carousel__slider .register .login-field .login-field__input .icon-feedback > i.active,
+                .login__carousel__slider .register .login-field .register-field__input .icon-feedback > i.active,
+                .login__carousel__slider .register .register-field .login-field__input .icon-feedback > i.active,
+                .login__carousel__slider .register .register-field .register-field__input .icon-feedback > i.active {
+                  opacity: 1;
+                  visibility: visible;
+                  z-index: 2; }
+                .login__carousel__slider .login .login-field .login-field__input .icon-feedback > i.fa-check,
+                .login__carousel__slider .login .login-field .register-field__input .icon-feedback > i.fa-check,
+                .login__carousel__slider .login .register-field .login-field__input .icon-feedback > i.fa-check,
+                .login__carousel__slider .login .register-field .register-field__input .icon-feedback > i.fa-check,
+                .login__carousel__slider .register .login-field .login-field__input .icon-feedback > i.fa-check,
+                .login__carousel__slider .register .login-field .register-field__input .icon-feedback > i.fa-check,
+                .login__carousel__slider .register .register-field .login-field__input .icon-feedback > i.fa-check,
+                .login__carousel__slider .register .register-field .register-field__input .icon-feedback > i.fa-check {
+                  color: #1abc9c; }
+                .login__carousel__slider .login .login-field .login-field__input .icon-feedback > i.fa-exclamation-circle,
+                .login__carousel__slider .login .login-field .register-field__input .icon-feedback > i.fa-exclamation-circle,
+                .login__carousel__slider .login .register-field .login-field__input .icon-feedback > i.fa-exclamation-circle,
+                .login__carousel__slider .login .register-field .register-field__input .icon-feedback > i.fa-exclamation-circle,
+                .login__carousel__slider .register .login-field .login-field__input .icon-feedback > i.fa-exclamation-circle,
+                .login__carousel__slider .register .login-field .register-field__input .icon-feedback > i.fa-exclamation-circle,
+                .login__carousel__slider .register .register-field .login-field__input .icon-feedback > i.fa-exclamation-circle,
+                .login__carousel__slider .register .register-field .register-field__input .icon-feedback > i.fa-exclamation-circle {
+                  color: #EA2027; }
+            .login__carousel__slider .login .login-field .login-field__input .border,
+            .login__carousel__slider .login .login-field .register-field__input .border,
+            .login__carousel__slider .login .register-field .login-field__input .border,
+            .login__carousel__slider .login .register-field .register-field__input .border,
+            .login__carousel__slider .register .login-field .login-field__input .border,
+            .login__carousel__slider .register .login-field .register-field__input .border,
+            .login__carousel__slider .register .register-field .login-field__input .border,
+            .login__carousel__slider .register .register-field .register-field__input .border {
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 0;
+              height: 1px;
+              background-color: #1289A7;
+              transition: width 0.2s ease-in; }
+          .login__carousel__slider .login .login-field .error-feedback,
+          .login__carousel__slider .login .register-field .error-feedback,
+          .login__carousel__slider .register .login-field .error-feedback,
+          .login__carousel__slider .register .register-field .error-feedback {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: visibility 0.25s ease-in, opacity 0.25s ease-in; }
+            .login__carousel__slider .login .login-field .error-feedback.active,
+            .login__carousel__slider .login .register-field .error-feedback.active,
+            .login__carousel__slider .register .login-field .error-feedback.active,
+            .login__carousel__slider .register .register-field .error-feedback.active {
+              opacity: 1;
+              visibility: visible; }
+            .login__carousel__slider .login .login-field .error-feedback > span,
+            .login__carousel__slider .login .register-field .error-feedback > span,
+            .login__carousel__slider .register .login-field .error-feedback > span,
+            .login__carousel__slider .register .register-field .error-feedback > span {
+              color: #EA2027;
+              font-weight: 700; }
+        .login__carousel__slider .login .login__utilities,
+        .login__carousel__slider .login .register__utilities,
+        .login__carousel__slider .register .login__utilities,
+        .login__carousel__slider .register .register__utilities {
+          width: 90%;
+          height: 25%;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: space-around; }
+          @media only screen and (min-width: 768px) {
+            .login__carousel__slider .login .login__utilities,
+            .login__carousel__slider .login .register__utilities,
+            .login__carousel__slider .register .login__utilities,
+            .login__carousel__slider .register .register__utilities {
+              width: 50%; } }
+          @media only screen and (min-width: 1200px) {
+            .login__carousel__slider .login .login__utilities,
+            .login__carousel__slider .login .register__utilities,
+            .login__carousel__slider .register .login__utilities,
+            .login__carousel__slider .register .register__utilities {
+              width: 25%; } }
+          .login__carousel__slider .login .login__utilities label[for="rememberMe"],
+          .login__carousel__slider .login .login__utilities label[for="terms"],
+          .login__carousel__slider .login .register__utilities label[for="rememberMe"],
+          .login__carousel__slider .login .register__utilities label[for="terms"],
+          .login__carousel__slider .register .login__utilities label[for="rememberMe"],
+          .login__carousel__slider .register .login__utilities label[for="terms"],
+          .login__carousel__slider .register .register__utilities label[for="rememberMe"],
+          .login__carousel__slider .register .register__utilities label[for="terms"] {
+            width: 50%;
+            height: 50%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            cursor: pointer; }
+            .login__carousel__slider .login .login__utilities label[for="rememberMe"] > input[type="checkbox"],
+            .login__carousel__slider .login .login__utilities label[for="terms"] > input[type="checkbox"],
+            .login__carousel__slider .login .register__utilities label[for="rememberMe"] > input[type="checkbox"],
+            .login__carousel__slider .login .register__utilities label[for="terms"] > input[type="checkbox"],
+            .login__carousel__slider .register .login__utilities label[for="rememberMe"] > input[type="checkbox"],
+            .login__carousel__slider .register .login__utilities label[for="terms"] > input[type="checkbox"],
+            .login__carousel__slider .register .register__utilities label[for="rememberMe"] > input[type="checkbox"],
+            .login__carousel__slider .register .register__utilities label[for="terms"] > input[type="checkbox"] {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              opacity: 0;
+              z-index: -1; }
+            .login__carousel__slider .login .login__utilities label[for="rememberMe"] > span,
+            .login__carousel__slider .login .login__utilities label[for="terms"] > span,
+            .login__carousel__slider .login .register__utilities label[for="rememberMe"] > span,
+            .login__carousel__slider .login .register__utilities label[for="terms"] > span,
+            .login__carousel__slider .register .login__utilities label[for="rememberMe"] > span,
+            .login__carousel__slider .register .login__utilities label[for="terms"] > span,
+            .login__carousel__slider .register .register__utilities label[for="rememberMe"] > span,
+            .login__carousel__slider .register .register__utilities label[for="terms"] > span {
+              transition: color 0.15s ease-in;
+              margin-left: 15%; }
+              .login__carousel__slider .login .login__utilities label[for="rememberMe"] > span.error,
+              .login__carousel__slider .login .login__utilities label[for="terms"] > span.error,
+              .login__carousel__slider .login .register__utilities label[for="rememberMe"] > span.error,
+              .login__carousel__slider .login .register__utilities label[for="terms"] > span.error,
+              .login__carousel__slider .register .login__utilities label[for="rememberMe"] > span.error,
+              .login__carousel__slider .register .login__utilities label[for="terms"] > span.error,
+              .login__carousel__slider .register .register__utilities label[for="rememberMe"] > span.error,
+              .login__carousel__slider .register .register__utilities label[for="terms"] > span.error {
+                color: #EA2027; }
+              @media only screen and (min-width: 1200px) {
+                .login__carousel__slider .login .login__utilities label[for="rememberMe"] > span:hover ~ div.custom-checkbox,
+                .login__carousel__slider .login .login__utilities label[for="terms"] > span:hover ~ div.custom-checkbox,
+                .login__carousel__slider .login .register__utilities label[for="rememberMe"] > span:hover ~ div.custom-checkbox,
+                .login__carousel__slider .login .register__utilities label[for="terms"] > span:hover ~ div.custom-checkbox,
+                .login__carousel__slider .register .login__utilities label[for="rememberMe"] > span:hover ~ div.custom-checkbox,
+                .login__carousel__slider .register .login__utilities label[for="terms"] > span:hover ~ div.custom-checkbox,
+                .login__carousel__slider .register .register__utilities label[for="rememberMe"] > span:hover ~ div.custom-checkbox,
+                .login__carousel__slider .register .register__utilities label[for="terms"] > span:hover ~ div.custom-checkbox {
+                  border-color: #1289A7; }
+                .login__carousel__slider .login .login__utilities label[for="rememberMe"] > span:hover ~ div.custom-checkbox i.fa-check,
+                .login__carousel__slider .login .login__utilities label[for="terms"] > span:hover ~ div.custom-checkbox i.fa-check,
+                .login__carousel__slider .login .register__utilities label[for="rememberMe"] > span:hover ~ div.custom-checkbox i.fa-check,
+                .login__carousel__slider .login .register__utilities label[for="terms"] > span:hover ~ div.custom-checkbox i.fa-check,
+                .login__carousel__slider .register .login__utilities label[for="rememberMe"] > span:hover ~ div.custom-checkbox i.fa-check,
+                .login__carousel__slider .register .login__utilities label[for="terms"] > span:hover ~ div.custom-checkbox i.fa-check,
+                .login__carousel__slider .register .register__utilities label[for="rememberMe"] > span:hover ~ div.custom-checkbox i.fa-check,
+                .login__carousel__slider .register .register__utilities label[for="terms"] > span:hover ~ div.custom-checkbox i.fa-check {
+                  color: #1abc9c; } }
+            .login__carousel__slider .login .login__utilities label[for="rememberMe"] div.custom-checkbox,
+            .login__carousel__slider .login .login__utilities label[for="terms"] div.custom-checkbox,
+            .login__carousel__slider .login .register__utilities label[for="rememberMe"] div.custom-checkbox,
+            .login__carousel__slider .login .register__utilities label[for="terms"] div.custom-checkbox,
+            .login__carousel__slider .register .login__utilities label[for="rememberMe"] div.custom-checkbox,
+            .login__carousel__slider .register .login__utilities label[for="terms"] div.custom-checkbox,
+            .login__carousel__slider .register .register__utilities label[for="rememberMe"] div.custom-checkbox,
+            .login__carousel__slider .register .register__utilities label[for="terms"] div.custom-checkbox {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              left: 0;
+              width: 17px;
+              height: 17px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 1px solid #636e72;
+              transition: border-color 0.15s ease-in; }
+              .login__carousel__slider .login .login__utilities label[for="rememberMe"] div.custom-checkbox.active,
+              .login__carousel__slider .login .login__utilities label[for="terms"] div.custom-checkbox.active,
+              .login__carousel__slider .login .register__utilities label[for="rememberMe"] div.custom-checkbox.active,
+              .login__carousel__slider .login .register__utilities label[for="terms"] div.custom-checkbox.active,
+              .login__carousel__slider .register .login__utilities label[for="rememberMe"] div.custom-checkbox.active,
+              .login__carousel__slider .register .login__utilities label[for="terms"] div.custom-checkbox.active,
+              .login__carousel__slider .register .register__utilities label[for="rememberMe"] div.custom-checkbox.active,
+              .login__carousel__slider .register .register__utilities label[for="terms"] div.custom-checkbox.active {
+                border-color: #1289A7; }
+              .login__carousel__slider .login .login__utilities label[for="rememberMe"] div.custom-checkbox.error,
+              .login__carousel__slider .login .login__utilities label[for="terms"] div.custom-checkbox.error,
+              .login__carousel__slider .login .register__utilities label[for="rememberMe"] div.custom-checkbox.error,
+              .login__carousel__slider .login .register__utilities label[for="terms"] div.custom-checkbox.error,
+              .login__carousel__slider .register .login__utilities label[for="rememberMe"] div.custom-checkbox.error,
+              .login__carousel__slider .register .login__utilities label[for="terms"] div.custom-checkbox.error,
+              .login__carousel__slider .register .register__utilities label[for="rememberMe"] div.custom-checkbox.error,
+              .login__carousel__slider .register .register__utilities label[for="terms"] div.custom-checkbox.error {
+                border-color: #EA2027; }
+              .login__carousel__slider .login .login__utilities label[for="rememberMe"] div.custom-checkbox > i.fa-check,
+              .login__carousel__slider .login .login__utilities label[for="terms"] div.custom-checkbox > i.fa-check,
+              .login__carousel__slider .login .register__utilities label[for="rememberMe"] div.custom-checkbox > i.fa-check,
+              .login__carousel__slider .login .register__utilities label[for="terms"] div.custom-checkbox > i.fa-check,
+              .login__carousel__slider .register .login__utilities label[for="rememberMe"] div.custom-checkbox > i.fa-check,
+              .login__carousel__slider .register .login__utilities label[for="terms"] div.custom-checkbox > i.fa-check,
+              .login__carousel__slider .register .register__utilities label[for="rememberMe"] div.custom-checkbox > i.fa-check,
+              .login__carousel__slider .register .register__utilities label[for="terms"] div.custom-checkbox > i.fa-check {
+                color: #636e72;
+                transition: color 0.15s ease-in;
+                font-size: 0.7em; }
+                .login__carousel__slider .login .login__utilities label[for="rememberMe"] div.custom-checkbox > i.fa-check.active,
+                .login__carousel__slider .login .login__utilities label[for="terms"] div.custom-checkbox > i.fa-check.active,
+                .login__carousel__slider .login .register__utilities label[for="rememberMe"] div.custom-checkbox > i.fa-check.active,
+                .login__carousel__slider .login .register__utilities label[for="terms"] div.custom-checkbox > i.fa-check.active,
+                .login__carousel__slider .register .login__utilities label[for="rememberMe"] div.custom-checkbox > i.fa-check.active,
+                .login__carousel__slider .register .login__utilities label[for="terms"] div.custom-checkbox > i.fa-check.active,
+                .login__carousel__slider .register .register__utilities label[for="rememberMe"] div.custom-checkbox > i.fa-check.active,
+                .login__carousel__slider .register .register__utilities label[for="terms"] div.custom-checkbox > i.fa-check.active {
+                  color: #1abc9c; }
+              @media only screen and (min-width: 1200px) {
+                .login__carousel__slider .login .login__utilities label[for="rememberMe"] div.custom-checkbox:hover,
+                .login__carousel__slider .login .login__utilities label[for="terms"] div.custom-checkbox:hover,
+                .login__carousel__slider .login .register__utilities label[for="rememberMe"] div.custom-checkbox:hover,
+                .login__carousel__slider .login .register__utilities label[for="terms"] div.custom-checkbox:hover,
+                .login__carousel__slider .register .login__utilities label[for="rememberMe"] div.custom-checkbox:hover,
+                .login__carousel__slider .register .login__utilities label[for="terms"] div.custom-checkbox:hover,
+                .login__carousel__slider .register .register__utilities label[for="rememberMe"] div.custom-checkbox:hover,
+                .login__carousel__slider .register .register__utilities label[for="terms"] div.custom-checkbox:hover {
+                  border-color: #1289A7; }
+                .login__carousel__slider .login .login__utilities label[for="rememberMe"] div.custom-checkbox:hover i.fa-check,
+                .login__carousel__slider .login .login__utilities label[for="terms"] div.custom-checkbox:hover i.fa-check,
+                .login__carousel__slider .login .register__utilities label[for="rememberMe"] div.custom-checkbox:hover i.fa-check,
+                .login__carousel__slider .login .register__utilities label[for="terms"] div.custom-checkbox:hover i.fa-check,
+                .login__carousel__slider .register .login__utilities label[for="rememberMe"] div.custom-checkbox:hover i.fa-check,
+                .login__carousel__slider .register .login__utilities label[for="terms"] div.custom-checkbox:hover i.fa-check,
+                .login__carousel__slider .register .register__utilities label[for="rememberMe"] div.custom-checkbox:hover i.fa-check,
+                .login__carousel__slider .register .register__utilities label[for="terms"] div.custom-checkbox:hover i.fa-check {
+                  color: #1abc9c; } }
+          .login__carousel__slider .login .login__utilities > a,
+          .login__carousel__slider .login .register__utilities > a,
+          .login__carousel__slider .register .login__utilities > a,
+          .login__carousel__slider .register .register__utilities > a {
+            padding: 5%;
+            text-decoration: none;
+            position: relative; }
+            @media only screen and (min-width: 1200px) {
+              .login__carousel__slider .login .login__utilities > a:hover::after,
+              .login__carousel__slider .login .register__utilities > a:hover::after,
+              .login__carousel__slider .register .login__utilities > a:hover::after,
+              .login__carousel__slider .register .register__utilities > a:hover::after {
+                width: 100%; } }
+            .login__carousel__slider .login .login__utilities > a > span,
+            .login__carousel__slider .login .register__utilities > a > span,
+            .login__carousel__slider .register .login__utilities > a > span,
+            .login__carousel__slider .register .register__utilities > a > span {
+              color: #2d3436; }
+            .login__carousel__slider .login .login__utilities > a::after,
+            .login__carousel__slider .login .register__utilities > a::after,
+            .login__carousel__slider .register .login__utilities > a::after,
+            .login__carousel__slider .register .register__utilities > a::after {
+              content: "";
+              position: absolute;
+              top: 75%;
+              left: 0;
+              width: 100%;
+              height: 1px;
+              background: linear-gradient(90deg, #1289A7, #6F1E51); }
+              @media only screen and (min-width: 1200px) {
+                .login__carousel__slider .login .login__utilities > a::after,
+                .login__carousel__slider .login .register__utilities > a::after,
+                .login__carousel__slider .register .login__utilities > a::after,
+                .login__carousel__slider .register .register__utilities > a::after {
+                  width: 0;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  transition: width 0.2s ease-in; } }
+        .login__carousel__slider .login .login__button,
+        .login__carousel__slider .login .register__button,
+        .login__carousel__slider .register .login__button,
+        .login__carousel__slider .register .register__button {
+          width: 90%;
+          height: 35px;
+          margin: 0 auto;
+          border: none;
+          outline: none;
+          border-radius: 5px;
+          background-image: linear-gradient(90deg, #1289A7, #083d4b); }
+          @media only screen and (min-width: 1200px) {
+            .login__carousel__slider .login .login__button,
+            .login__carousel__slider .login .register__button,
+            .login__carousel__slider .register .login__button,
+            .login__carousel__slider .register .register__button {
+              width: 25%;
+              cursor: pointer; }
+              .login__carousel__slider .login .login__button:hover,
+              .login__carousel__slider .login .register__button:hover,
+              .login__carousel__slider .register .login__button:hover,
+              .login__carousel__slider .register .register__button:hover {
+                background-image: linear-gradient(-90deg, #1289A7, #083d4b); } }
+          .login__carousel__slider .login .login__button > span,
+          .login__carousel__slider .login .register__button > span,
+          .login__carousel__slider .register .login__button > span,
+          .login__carousel__slider .register .register__button > span {
+            color: #fff; }
+      .login__carousel__slider .register {
+        height: 400px;
+        justify-content: space-around; }
+        .login__carousel__slider .register .register-field {
+          position: relative;
+          height: 20%; }
+          .login__carousel__slider .register .register-field .pw-helper {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            margin: 0 auto;
+            height: 215px;
+            z-index: 9;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #2d3436;
+            opacity: 0;
+            visibility: hidden;
+            transition: visibility 0.25s ease-in, opacity 0.25s ease-in; }
+            .login__carousel__slider .register .register-field .pw-helper::before {
+              content: "\f0d8";
+              font-family: "FontAwesome";
+              font-size: 1.3em;
+              position: absolute;
+              bottom: 98%;
+              right: 9%;
+              color: #636e72; }
+            .login__carousel__slider .register .register-field .pw-helper > span {
+              width: 95%;
+              margin: 0 auto;
+              height: 20%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-weight: 800; }
+            .login__carousel__slider .register .register-field .pw-helper > ul {
+              width: 95%;
+              margin: 0 auto;
+              height: 80%;
+              padding: 0 5%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              list-style: none; }
+              .login__carousel__slider .register .register-field .pw-helper > ul > li {
+                margin: 2% 0;
+                font-family: "Roboto";
+                color: #2d3436;
+                font-weight: 800;
+                letter-spacing: 0.5px;
+                transition: color 0.15s ease-in; }
+                @media only screen and (min-width: 1200px) {
+                  .login__carousel__slider .register .register-field .pw-helper > ul > li {
+                    font-size: 0.85em; } }
+                .login__carousel__slider .register .register-field .pw-helper > ul > li.true {
+                  color: #1abc9c; }
+                .login__carousel__slider .register .register-field .pw-helper > ul > li.false {
+                  color: #EA2027; }
+            .login__carousel__slider .register .register-field .pw-helper.active {
+              opacity: 1;
+              visibility: visible; }
+        .login__carousel__slider .register .register__utilities label[for="terms"] {
+          width: 85%; }
+          .login__carousel__slider .register .register__utilities label[for="terms"] > span {
+            margin-left: 10%; }
+
+.modal-feedback {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #cdd2d4;
+  border-radius: 5px;
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0.25s ease-in, opacity 0.25s ease-in; }
+  .modal-feedback.active {
+    opacity: 1;
+    visibility: visible; }
+  .modal-feedback__wrapper {
+    width: 30%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 5px;
+    transform: scale(0.1);
+    opacity: 0;
+    transition: opacity 0.25s ease-in, transform 0.5s ease-in; }
+    .modal-feedback__wrapper.active {
+      transform: scale(1);
+      opacity: 1; }
+    .modal-feedback__wrapper > span {
+      width: 90%;
+      margin: 10% auto;
+      font-weight: 800;
+      text-align: center; }
+      @media only screen and (min-width: 1200px) {
+        .modal-feedback__wrapper > span {
+          margin: 5% auto; } }
+    .modal-feedback__wrapper > div {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #1abc9c;
+      border-radius: 50%; }
+      .modal-feedback__wrapper > div > i {
+        font-size: 2em;
+        color: #1abc9c; }
+        .modal-feedback__wrapper > div > i.active {
+          animation: scale-in 0.5s ease-in 1;
+          animation-delay: 0.5s; }
+@keyframes scale-in {
+  0% {
+    transform: scale(1); }
+  50% {
+    transform: scale(1.3); }
+  100% {
+    transform: scale(1); } }
+
+/*# sourceMappingURL=login_system.css.map */

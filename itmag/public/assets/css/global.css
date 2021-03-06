@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem; }
+
+body span {
+  font-family: "Roboto";
+  letter-spacing: 0.2px; }
+  @media only screen and (min-width: 1200px) {
+    body span {
+      font-size: 0.9rem; } }
+
+body a {
+  font-weight: 700;
+  letter-spacing: 0.2px; }
+
+body i {
+  color: #2d3436; }
+  body i.fa-times {
+    color: #EA2027; }
+  @media only screen and (min-width: 1200px) {
+    body i {
+      font-size: 1em; } }
+
+/*# sourceMappingURL=global.css.map */

@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+$regularTextSize: 0.85em;
+$buttonHeight: 35px;
+$regularRadius: 5px;
+
+$fonts: (textFont: "Roboto",
+    subheadingFont: "Montserrat Alternates"
+);
+
+@function getFont($Font) {
+    @return map-get($fonts, $Font);
+}
+
+$colors: (primaryColor: #1289A7,
+    darkenPrimaryColor: darken(#1289A7, 20%),
+    secondaryColor: #6F1E51,
+    neutralColor:#636e72,
+    lightenNeutralColor: lighten(#636e72, 40%),
+    textColor: #2d3436,
+    lightenTextColor: lighten(#2d3436, 20%),
+    closeColor: #EA2027,
+    ratingColor: #f1c40f,
+    successColor: #1abc9c);
+
+@function getColor($Color) {
+    @return map-get($colors, $Color);
+}
+
+$transitions: (color: color 0.15s ease-in,
+    borderRadius: border-radius 0.15s ease-in,
+    bgColor: background-color 0.15s ease-in,
+    transform: transform 0.2s ease-in,
+    height: height 0.2s ease-in,
+    width: width 0.2s ease-in,
+    zIndex: z-index 0.2s ease-in,
+    visibility: visibility 0.25s ease-in,
+    opacity: opacity 0.25s ease-in);
+
+@function getTransition($Transition) {
+    @return map-get($transitions, $Transition);
+}
+
+$mobileScreen: 411px;
+
+@mixin mobileScreens {
+    @media only screen and (min-width: #{$mobileScreen}) {
+        @content;
+    }
+}
+
+$tabletScreen: 768px;
+
+@mixin tabletScreens {
+    @media only screen and (min-width: #{$tabletScreen}) {
+        @content;
+    }
+}
+
+$desktopScreen: 1200px;
+
+@mixin desktopScreens {
+    @media only screen and (min-width: #{$desktopScreen}) {
+        @content;
+    }
+}
+
+body span {
+    font-family: getFont(textFont);
+    letter-spacing: 0.2px;
+
+    @include desktopScreens {
+        font-size: 0.9rem;
+    }
+}
+
+body a {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+body i {
+    color: getColor(textColor);
+
+    &.fa-times {
+        color: getColor(closeColor);
+    }
+
+    @include desktopScreens {
+        font-size: 1em;
+    }
+}

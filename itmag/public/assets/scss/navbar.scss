@@ -1,0 +1,842 @@
+@import "global.scss";
+
+.navbar {
+    display: grid;
+    grid-template-columns: 0.1fr 0.25fr 0.2fr 0.5fr;
+    grid-template-rows: 45px;
+    grid-template-areas: 'left logo . right';
+    position: relative;
+    background-color: #fff;
+    z-index: 9;
+
+    &.sticky {
+        position: sticky;
+        top: 0;
+        left: 0;
+        animation: trans-in 0.2s ease-in 1;
+
+        @keyframes trans-in {
+            0% {
+                opacity: 0;
+                transform: translateY(-15%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+
+    @include tabletScreens {
+        grid-template-columns: 0.03fr 0.14fr 0.65fr 0.2fr 0.03fr;
+        grid-template-areas: '. logo search right .';
+        grid-template-rows: 60px;
+
+        &.sticky {
+            grid-template-columns: 0.03fr 0.05fr 0.14fr 0.55fr 0.2fr 0.03fr;
+            grid-template-areas: '. left logo search right .';
+            grid-template-rows: 45px;
+
+            &::after {
+                background: linear-gradient(90deg, getColor(primaryColor), getColor(secondaryColor));
+            }
+        }
+    }
+
+    @include desktopScreens {
+        grid-template-columns: 0.05fr 0.05fr 0.025fr 0.5fr 0.025fr 0.3fr 0.05fr;
+        grid-template-areas: ". logo . search . right .";
+
+        &.sticky {
+            grid-template-columns: 0.05fr 0.03fr 0.1fr 0.01fr 0.45fr 0.01fr 0.3fr 0.05fr;
+            grid-template-areas: ". left logo . search . right .";
+            grid-template-rows: 45px;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, getColor(primaryColor), getColor(secondaryColor));
+
+        @include tabletScreens {
+            background: none;
+        }
+    }
+
+    &__left-area {
+        grid-area: left;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: transparent;
+            z-index: 9;
+        }
+
+        &>i {
+            font-size: 1.3em;
+            color: getColor(primaryColor);
+            transform: rotate(0);
+            transition: getTransition(transform);
+
+            @include desktopScreens {
+                cursor: pointer;
+            }
+
+            &.fa-times {
+                transform: rotate(90deg);
+            }
+        }
+
+        @include tabletScreens {
+            display: none;
+        }
+
+        &.sticky {
+            display: flex;
+        }
+
+        &__categories {
+            position: absolute;
+            top: calc(100% + 3px);
+            left: 0;
+            width: 235px;
+            height: calc(100vh - 45px);
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            z-index: 9;
+            transform: translateX(-100%);
+            transition: getTransition(transform);
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 1px;
+                height: 100%;
+                background-image: linear-gradient(120deg, getColor(secondaryColor), getColor(primaryColor));
+            }
+
+            &.active {
+                transform: translateX(0);
+            }
+
+            @include tabletScreens {
+                width: 250px;
+                left: -60%;
+            }
+
+            @include desktopScreens {
+                width: 15vw;
+                height: 25vh;
+                left: 0;
+                transform: translateX(0);
+                border-bottom-left-radius: $regularRadius;
+                border-bottom-right-radius: $regularRadius;
+                box-shadow: 0 0 5px getColor(textColor);
+                visibility: hidden;
+                opacity: 0;
+                transition: getTransition(visibility), getTransition(opacity);
+
+                &::after {
+                    background-image: none;
+                }
+
+                &.active {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+
+            &>a {
+                width: 100%;
+                height: 6.5vh;
+                display: flex;
+                align-items: center;
+                padding: 0 3%;
+                text-decoration: none;
+
+                @include mobileScreens {
+                    height: 5vh;
+                }
+
+                @include tabletScreens {
+                    height: 3.5vh;
+                }
+
+                @include desktopScreens {
+                    height: 5vh;
+                    padding: 1% 3%;
+                    transition: box-shadow 0.15s ease-in;
+
+                    &:hover {
+                        box-shadow: inset 0 0 5px getColor(lightenNeutralColor);
+                    }
+
+                    &:hover>span {
+                        color: getColor(primaryColor);
+                    }
+                }
+
+                &>i {
+                    color: getColor(textColor);
+                }
+
+                &>span {
+                    color: getColor(textColor);
+                    margin-left: 4%;
+                    font-size: $regularTextSize;
+                    font-weight: 600;
+                    transition: getTransition(color);
+                }
+            }
+        }
+    }
+
+    &__logo {
+        grid-area: logo;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        &>a {
+            width: 70%;
+            height: 60%;
+            display: flex;
+            align-items: center;
+
+            @include tabletScreens {
+                width: 85%;
+                height: 60%;
+            }
+
+            @include desktopScreens {
+                width: 100%;
+                height: 100%;
+
+                &.sticky {
+                    width: 70%;
+                    height: 75%;
+                }
+            }
+
+            &>img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    &__search {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        z-index: 9;
+        opacity: 0;
+        visibility: hidden;
+        transition: getTransition(visibility), getTransition(opacity);
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @include tabletScreens {
+            grid-area: search;
+            width: 95%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &__container {
+            width: 90%;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+
+            @include tabletScreens {
+                width: 100%;
+                height: 60%;
+                border: 1px solid getColor(primaryColor);
+                border-radius: 15px;
+                transition: border-bottom-left-radius 0.15s ease-in, border-bottom-right-radius 0.15s ease-in;
+
+                &.active {
+                    border-bottom: none;
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+
+                &.sticky {
+                    height: 75%;
+                }
+            }
+
+            & input {
+                width: 85%;
+                height: 100%;
+                border: none;
+                outline: none;
+                font-family: getFont(textFont);
+                font-weight: 700;
+                color: getColor(textColor);
+
+                @include tabletScreens {
+                    width: 90%;
+                    border-top-left-radius: 15px;
+                    border-bottom-left-radius: 15px;
+                    padding: 0 2%;
+                }
+
+                @include desktopScreens {
+                    width: 93%;
+                    font-size: 0.9em;
+                }
+            }
+
+            &>i {
+                width: 15%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                font-size: 1.3em;
+                color: getColor(primaryColor);
+
+                @include tabletScreens {
+                    width: 10%;
+                    justify-content: center;
+                }
+
+                @include desktopScreens {
+                    width: 7%;
+                }
+
+                &.fa-times {
+                    color: getColor(closeColor);
+
+                    @include tabletScreens {
+                        opacity: 0;
+                        visibility: hidden;
+                        transform: rotate(0);
+                        transition: getTransition(visibility), getTransition(opacity), getTransition(transform);
+
+                        &.active {
+                            opacity: 1;
+                            visibility: visible;
+                            transform: rotate(90deg);
+                        }
+                    }
+
+                    @include desktopScreens {
+                        cursor: pointer;
+                    }
+                }
+
+                &.fa-search {
+                    @include desktopScreens {
+                        cursor: pointer;
+                        transition: getTransition(color);
+
+                        &:hover {
+                            color: getColor(darkenPrimaryColor);
+                        }
+                    }
+                }
+            }
+        }
+
+        &__suggestions {
+            position: absolute;
+            top: calc(100% + 3px);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 45px);
+            display: flex;
+            flex-direction: column;
+            background-color: inherit;
+
+            @include tabletScreens {
+                top: calc(100% - 12px);
+                opacity: 0;
+                visibility: hidden;
+                height: 40vh;
+                transition: getTransition(visibility), getTransition(opacity);
+                background-color: inherit;
+                border: 1px solid getColor(primaryColor);
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+
+                &.active {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                &.sticky {
+                    top: calc(100% - 7px);
+                }
+            }
+
+            @include desktopScreens {
+                height: 55vh;
+            }
+
+            &>span {
+                width: 100%;
+                height: 5vh;
+                display: flex;
+                align-items: center;
+                padding: 0 3%;
+                font-weight: 800;
+            }
+
+            &>a {
+                width: 100%;
+                height: 5vh;
+                display: flex;
+                align-items: center;
+                padding: 6%;
+                text-decoration: none;
+
+                @include tabletScreens {
+                    padding: 2% 3%;
+                }
+
+                @include desktopScreens {
+                    transition: box-shadow 0.15s ease-in;
+                    padding: 1% 3%;
+
+                    &:hover {
+                        box-shadow: inset 0 0 5px getColor(lightenNeutralColor);
+                    }
+
+                    &:hover>span {
+                        color: getColor(primaryColor);
+                    }
+                }
+
+                &>i {
+                    color: getColor(textColor);
+                }
+
+                &>span {
+                    color: getColor(textColor);
+                    margin-left: 2%;
+                    font-weight: 600;
+                    font-size: $regularTextSize;
+                    transition: getTransition(color);
+                }
+            }
+
+            &__back {
+                position: absolute;
+                bottom: 5%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 65%;
+                margin: 0 auto;
+                height: 5vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &>i {
+                    margin-right: 5%;
+                    color: getColor(textColor);
+                }
+
+                &>span {
+                    font-weight: 800;
+                    font-size: 0.9em;
+                }
+
+                @include tabletScreens {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &__right-area {
+        grid-area: right;
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        &>i {
+            width: 25%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            color: getColor(primaryColor);
+
+            @include tabletScreens {
+                display: none;
+            }
+        }
+
+        &>div {
+            width: 25%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-decoration: none;
+
+            @include tabletScreens {
+                width: 33%;
+            }
+
+            @include desktopScreens {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background-color: transparent;
+                    z-index: 9;
+                }
+            }
+
+            &>a {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                text-decoration: none;
+
+                &:hover>i {
+                    color: getColor(darkenPrimaryColor);
+                }
+
+                &:hover>span {
+                    color: getColor(primaryColor);
+                }
+
+                &>i {
+                    font-size: 1.3em;
+                    color: getColor(primaryColor);
+                    transition: getTransition(color);
+
+                    &.fa-caret-down {
+                        display: none;
+
+                        @include desktopScreens {
+                            display: block;
+                            color: getColor(textColor);
+                            font-size: 0.85em;
+                        }
+                    }
+
+
+                    &.fa-circle {
+                        position: relative;
+                        font-size: 2em;
+
+                        &>span.user {
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            color: #fff;
+                            font-size: 1rem;
+                        }
+                    }
+
+                    &.fa-heart-o,
+                    &.fa-shopping-cart {
+                        position: relative;
+
+                        & .items-count {
+                            position: absolute;
+                            top: -30%;
+                            right: -40%;
+                            width: 18px;
+                            height: 18px;
+                            background-color: getColor(darkenPrimaryColor);
+                            border-radius: 50%;
+
+                            @include desktopScreens {
+                                width: 16px;
+                                height: 16px;
+                            }
+
+                            &>span {
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                color: #fff;
+                                font-size: 0.75em;
+                                transition: getTransition(color);
+
+                                @include desktopScreens {
+                                    font-size: 0.65em;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &>span {
+                    display: none;
+
+                    @include desktopScreens {
+                        display: flex;
+                        margin: 0 5%;
+                        font-weight: 800;
+                        color: getColor(textColor);
+                    }
+                }
+            }
+
+            & .user-panel {
+                display: none;
+
+                @include desktopScreens {
+                    position: absolute;
+                    top: 100%;
+                    left: -15vw;
+                    width: auto;
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    background-color: #fff;
+                    box-shadow: 0 0 5px getColor(textColor);
+                    border-radius: $regularRadius;
+                    z-index: 9;
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translateY(15px);
+                    transition: getTransition(visibility), getTransition(opacity), getTransition(transform);
+
+                    &.active {
+                        opacity: 1;
+                        visibility: visible;
+                        transform: translateY(0);
+                    }
+
+                    &.sticky {
+                        top: calc(100% + 3px);
+                        border-top-left-radius: 0;
+                        border-top-right-radius: 0;
+
+                        &::before {
+                            bottom: calc(95% + 3px);
+                        }
+                    }
+
+                    &__not-logged-in {
+                        width: 25vw;
+                        height: 20vh;
+                        display: flex;
+                        flex-direction: column;
+
+                        &__header {
+                            width: 100%;
+                            height: 50%;
+                            display: flex;
+
+                            &>i {
+                                width: 15%;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 1.9em;
+                                color: getColor(darkenPrimaryColor);
+                            }
+
+                            &>span {
+                                width: 85%;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                font-size: $regularTextSize;
+                            }
+                        }
+
+                        &__actions {
+                            width: 100%;
+                            height: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-around;
+
+                            &>a {
+                                position: relative;
+                                text-decoration: none;
+
+                                &:first-child {
+                                    width: 40%;
+                                    height: $buttonHeight;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: flex-end;
+                                    background-color: getColor(darkenPrimaryColor);
+                                    border-radius: $regularRadius;
+                                    transition: getTransition(bgColor);
+
+                                    &>i {
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 0;
+                                        transform: translateY(-50%);
+                                        width: 25%;
+                                        height: 100%;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        color: #fff;
+                                        background-color: getColor(primaryColor);
+                                        border-top-left-radius: $regularRadius;
+                                        border-bottom-left-radius: $regularRadius;
+                                        border-bottom-right-radius: 75%;
+                                        transition: getTransition(bgColor);
+                                    }
+
+                                    &>span {
+                                        width: 75%;
+                                        display: flex;
+                                        justify-content: center;
+                                        color: #fff;
+                                        font-size: $regularTextSize;
+                                    }
+
+                                    &:hover {
+                                        background-color: getColor(primaryColor);
+                                    }
+
+                                    &:hover>i {
+                                        background-color: getColor(darkenPrimaryColor);
+                                    }
+                                }
+
+                                &:nth-child(2) {
+                                    width: 50%;
+                                    height: $buttonHeight;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+
+                                    &>span {
+                                        color: getColor(textColor);
+                                        font-size: $regularTextSize;
+                                    }
+
+                                    &::after {
+                                        content: "";
+                                        position: absolute;
+                                        top: 100%;
+                                        left: 50%;
+                                        transform: translateX(-50%);
+                                        width: 0;
+                                        height: 1px;
+                                        background: linear-gradient(90deg, getColor(primaryColor), getColor(secondaryColor));
+                                        transition: getTransition(width);
+                                    }
+
+                                    &:hover::after {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &__actions {
+                    width: 15vw;
+                    height: 30vh;
+                    display: flex;
+                    flex-direction: column;
+
+                    &>span {
+                        height: 7vh;
+                        display: flex;
+                        align-items: center;
+                        padding: 0 3%;
+                        border-bottom: 1px solid getColor(neutralColor);
+                        font-weight: 1000;
+                        letter-spacing: 0.5px;
+                    }
+
+                    &>ul {
+                        width: 100%;
+                        height: 23vh;
+                        display: flex;
+                        flex-direction: column;
+                        list-style: none;
+
+                        &>li {
+                            width: 100%;
+                            height: 5vh;
+
+                            &.last {
+                                margin-top: auto;
+                            }
+
+                            &>a {
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                padding: 0 3%;
+                                text-decoration: none;
+                                transition: box-shadow 0.15s ease-in;
+
+                                &>span {
+                                    color: getColor(textColor);
+                                }
+
+                                &:hover {
+                                    box-shadow: inset 0 0 5px getColor(lightenNeutralColor);
+                                }
+
+                                &:hover>span {
+                                    color: getColor(primaryColor);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
